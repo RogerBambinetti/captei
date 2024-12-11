@@ -17,11 +17,24 @@ cd projectname
 npm install
 ```
 
-## Run migrations
-To run knex migrations, create tables and populate the database use the command:
+## Setup
+
+1. First, make sure to run the docker containers using docker compose:
+
+```bash
+docker compose up -d
+```
+
+2. Next, we need to run knex migrations in order to create tables and populate the database:
 
 ```bash
 npx knex migrate:latest
+```
+
+3. Finally, run the nodeJS project with:
+
+```bash
+npm start
 ```
 
 ## Contributing
