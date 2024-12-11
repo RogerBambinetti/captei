@@ -1,0 +1,19 @@
+{
+  "name": "captei-test",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node ./src/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@dotenvx/dotenvx": "^1.29.0",
+    "dotenv": "^16.4.7",
+    "knex": "^3.1.0",
+    "pg": "^8.13.1",
+    "puppeteer": "^23.10.2"
+  }
+}
