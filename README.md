@@ -6,13 +6,6 @@ A brief description of what this project does and who it's for.
 ## Installation
 Instructions on how to install and set up the project.
 
-
-# Clone the repository
-git clone https://github.com/yourusername/projectname.git
-
-# Navigate to the project directory
-cd projectname
-
 1. First, let's install the project dependencies with npm:
 
 ```bash
