@@ -2,12 +2,15 @@ require('@dotenvx/dotenvx').config();
 const removeAccents = require('remove-accents');
 
 const database = require('./db/database');
+const elasticsearch = require('./es/elasticsearch');
 
 const PortalController = require('./controllers/PortalController');
 const SnapshotController = require('./controllers/SnapshotController');
+const ESController = require('./controllers/ESController');
 
 const portalController = new PortalController(database);
 const snapshotController = new SnapshotController(database);
+const esController = new ESController(elasticsearch);
 
 async function init() {
     const portals = await portalController.getAll();
@@ -24,9 +27,11 @@ async function init() {
 
             const crawler = new Crawler(portal.url, snapshot.filters);
 
-            snapshotController.updateStatus(snapshot.id, 'rodando');
+            await snapshotController.updateStatus(snapshot.id, 'rodando');
             const data = await crawler.getData();
-            snapshotController.updateStatus(snapshot.id, 'concluido');
+            await snapshotController.updateStatus(snapshot.id, 'concluido');
+
+            await esController.bulkIndexData('imoveis', data);
         } catch (err) {
             snapshotController.updateStatus(snapshot.id, 'erro');
             console.log(`Error while crawling ${portal.name}: ${err.message}`);

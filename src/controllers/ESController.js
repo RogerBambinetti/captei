@@ -6,7 +6,7 @@ class ESController {
     async bulkIndexData(index, dataArray) {
         try {
 
-            const body = dataArray.flatMap(doc => [{ index: { _index: 'scraped_data' } }, doc]);
+            const body = dataArray.flatMap(doc => [{ index: { _index: index } }, doc]);
 
             await this.elasticsearch.bulk({ body });
         } catch (error) {

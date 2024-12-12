@@ -63,7 +63,6 @@ class DudaImoveisCrawler extends BaseCrawler {
             };
 
             data.push(propertyData);
-
             console.log(`Added data ${data.length} of ${resultLinks.length}`, propertyData);
         }
 
