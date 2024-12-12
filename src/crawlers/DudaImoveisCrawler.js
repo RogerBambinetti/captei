@@ -44,6 +44,7 @@ class DudaImoveisCrawler extends BaseCrawler {
             const privateArea = await page.evaluate("document.querySelector('#amenity-area-privativa').querySelector('span').innerText");
 
             const propertyData = {
+                url: resultLink,
                 title,
                 description,
                 address,
