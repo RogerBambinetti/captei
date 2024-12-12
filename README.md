@@ -14,7 +14,7 @@ Instructions on how to install and set up the project.
 npm install
 ```
 
-2. Be sure to set ur enverioment variables correctly at .env (check .env.example)
+2. Set your environment variables correctly in the `.env` file (refer to `.env.example` for guidance):
 
 3. Now, make sure to run the docker containers using docker compose:
 
