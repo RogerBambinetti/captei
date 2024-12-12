@@ -14,19 +14,21 @@ Instructions on how to install and set up the project.
 npm install
 ```
 
-1. Now, make sure to run the docker containers using docker compose:
+2. Be sure to set ur enverioment variables correctly at .env (check .env.example)
+
+3. Now, make sure to run the docker containers using docker compose:
 
 ```bash
 docker compose up -d
 ```
 
-2. Next, we need to run knex migrations in order to create tables and populate the database:
+4. Next, we need to run knex migrations in order to create tables and populate the database:
 
 ```bash
 npx knex migrate:latest
 ```
 
-3. Finally, run the nodeJS project with:
+5. Finally, run the nodeJS project with:
 
 ```bash
 npm start
