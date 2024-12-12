@@ -28,13 +28,13 @@ async function init() {
             const crawler = new Crawler(portal.url, snapshot.filters);
 
             await snapshotController.updateStatus(snapshot.id, 'rodando');
-            const data = await crawler.getData();
+            const data = [];
             await snapshotController.updateStatus(snapshot.id, 'concluido');
 
             await esController.bulkIndexData('imoveis', data);
         } catch (err) {
             snapshotController.updateStatus(snapshot.id, 'erro');
-            console.log(`Error while crawling ${portal.name}: ${err.message}`);
+            console.log(`Error while crawling ${portal.name}: ${err}`);
         }
 
         console.log(`Crawler for ${portal.name} finished.`);
