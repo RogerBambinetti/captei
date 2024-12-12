@@ -6,7 +6,7 @@ class DudaImoveisCrawler extends BaseCrawler {
         super(url, filters);
     }
 
-    async handleFilter() {
+    async handleFilter(page) {
 
         console.log('Applyng filters...');
 
@@ -16,9 +16,9 @@ class DudaImoveisCrawler extends BaseCrawler {
         path.push(filters.businessType || 'aluguel');
         path.push(filters.propertyType || 'apartamento');
 
-        const newUrl = new URL(path.join('/'), this.url);
+        const newUrl = new URL(path.join('/'), this.baseUrl);
 
-        this.navigateToPage(newUrl, toString());
+        await this.navigateToPage(page, newUrl.toString());
     }
 
     async handleCrawling(page) {

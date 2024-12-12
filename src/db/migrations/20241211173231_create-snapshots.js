@@ -6,7 +6,7 @@ exports.up = function (knex) {
     return knex.schema.createTable("snapshot", (table) => {
         table.increments("id").primary();
         table.integer("idPortal").notNullable();
-        table.jsonb("filters");
+        table.jsonb("filters").notNullable();
         table.string("status");
         table.dateTime("lastStarted");
         table.dateTime("lastTerminated");
