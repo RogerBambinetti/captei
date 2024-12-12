@@ -7,7 +7,7 @@ class SnapshotController {
         try {
             const snapshot = await this.database('snapshot').select('*').where('idPortal', idPortal);
 
-            return snapshot;
+            return snapshot[0];
         } catch (error) {
 
             throw error;
