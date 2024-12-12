@@ -35,7 +35,7 @@ class BaseCrawler {
 
         try {
             await this.navigateToPage(page, this.baseUrl);
-            const data = this.handleCrawling(page);
+            const data = await this.handleCrawling(page);
 
             return data;
         } catch (e) {

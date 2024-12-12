@@ -16,8 +16,6 @@ async function init() {
 
         const snapshot = await snapshotController.getByPortal(portal.id);
 
-        console.log(snapshot)
-
         try {
             console.log(`Starting crawler for ${portal.name}...`);
 
@@ -27,7 +25,7 @@ async function init() {
             const crawler = new Crawler(portal.url, snapshot.filters);
 
             snapshotController.updateStatus(snapshot.id, 'rodando');
-            //const data = await crawler.getData();
+            const data = await crawler.getData();
         } catch (err) {
             console.log(`Error while crawling ${portal.name}: ${err.message}`);
         }

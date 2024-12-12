@@ -6,7 +6,9 @@ class DudaImoveisCrawler extends BaseCrawler {
     }
 
     async handleCrawling(page) {
-        console.log(page.url());
+        const results = await page.$$('.imovel-box-single');
+
+        console.log(results)
     }
 }
 
