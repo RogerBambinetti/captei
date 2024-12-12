@@ -11,8 +11,7 @@
   "license": "ISC",
   "dependencies": {
     "@dotenvx/dotenvx": "^1.29.0",
-    "dotenv": "^16.4.7",
-    "elasticsearch": "^16.7.3",
+    "@elastic/elasticsearch": "8.10.1",
     "knex": "^3.1.0",
     "pg": "^8.13.1",
     "puppeteer": "^23.10.2",

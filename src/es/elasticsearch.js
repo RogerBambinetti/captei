@@ -1,7 +1,7 @@
-const elasticsearch = require('elasticsearch');
+const { Client } = require('@elastic/elasticsearch')
 
-client = elasticsearch.Client({
-    host: process.env.ES_HOST,
-});
+const client = new Client({
+    node: process.env.ES_HOST
+})
 
 module.exports = client;
