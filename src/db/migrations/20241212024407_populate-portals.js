@@ -3,7 +3,7 @@
  * @returns { Promise<void> }
  */
 exports.up = async function (knex) {
-    return knex("portal").insert({ name: 'Duda Imóveis', url: 'teste', observations: 'teste' });
+    return knex("portal").insert({ name: 'Duda Imóveis', url: 'https://dudaimoveis.com.br', observations: 'Portal da imobiliária Duda Imóveis' });
 };
 
 /**
