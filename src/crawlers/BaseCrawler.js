@@ -17,18 +17,6 @@ class BaseCrawler {
         await page.goto(url, { waitUntil: 'networkidle0' });
     }
 
-    async findButtonByText(page, buttonText) {
-        const buttons = await page.$$('button');
-
-        for (const btn of buttons) {
-            const btnText = await btn.evaluate(x => x.textContent);
-
-            if (btnText && btnText.trim() == buttonText) {
-                return btn;
-            }
-        }
-    }
-
     async getData() {
         const browser = await this.launchBrowser();
         const page = await browser.newPage();

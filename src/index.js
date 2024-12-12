@@ -30,10 +30,12 @@ async function init() {
         } catch (err) {
             snapshotController.updateStatus(snapshot.id, 'erro');
             console.log(`Error while crawling ${portal.name}: ${err.message}`);
-        } finally {
-            process.exit();
         }
+
+        console.log(`Crawler for ${portal.name} finished.`);
     }
+
+    process.exit();
 }
 
 init();
