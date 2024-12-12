@@ -24,7 +24,7 @@ class DudaImoveisCrawler extends BaseCrawler {
 
         console.log('Crawling...');
 
-        const resultLinks = await page.evaluate("Array.from( document.querySelectorAll('.imovel-box-single a[href]'), a => a.getAttribute('href'))");
+        const resultLinks = await page.evaluate("Array.from( document.querySelectorAll('.imovel-box-single a.swiper-wrapper'), a => a.getAttribute('href'))");
 
         const data = [];
 
