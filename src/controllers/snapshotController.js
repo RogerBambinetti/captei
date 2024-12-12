@@ -25,6 +25,8 @@ class SnapshotController {
             } else {
                 await this.database('snapshot').where('id', id).update('lastStarted', currentDatetime);
             }
+
+            console.log('Status updated:', status);
         } catch (error) {
 
             throw error;

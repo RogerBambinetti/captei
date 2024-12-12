@@ -24,9 +24,43 @@ class DudaImoveisCrawler extends BaseCrawler {
 
         console.log('Crawling...');
 
-        const results = await page.$$('.imovel-box-single');
+        const resultLinks = await page.evaluate("Array.from( document.querySelectorAll('.imovel-box-single a[href]'), a => a.getAttribute('href'))");
 
-        console.log(results);
+        const data = [];
+
+        for (const resultLink of resultLinks) {
+
+            await this.navigateToPage(page, resultLink);
+
+            const title = await page.evaluate("document.querySelector('#clb-imovel-topo h1').innerText");
+            const description = await page.evaluate("document.querySelector('.property-amenities-imovel-detalhe').nextElementSibling.innerText");
+            const address = await page.evaluate("document.querySelector('.endereco').innerText");
+            const businessType = await page.evaluate("document.querySelector('.thumb-status').innerText");
+            const price = await page.evaluate("document.querySelector('.thumb-price').innerText");
+
+            const bedrooms = await page.evaluate("document.querySelector('#amenity-dormitorios').querySelector('span').innerText");
+            const bathrooms = await page.evaluate("document.querySelector('#amenity-banheiros').querySelector('span').innerText");
+            const parkingSpots = await page.evaluate("document.querySelector('#amenity-vagas').querySelector('span').innerText");
+            const privateArea = await page.evaluate("document.querySelector('#amenity-area-privativa').querySelector('span').innerText");
+
+            const propertyData = {
+                title,
+                description,
+                address,
+                businessType,
+                price,
+                bedrooms,
+                bathrooms,
+                parkingSpots,
+                privateArea
+            };
+
+            data.push(propertyData);
+
+            console.log(`Added data ${data.length} of ${resultLinks.length}`, propertyData);
+        }
+
+        return data
     }
 }
 
