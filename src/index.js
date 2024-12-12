@@ -1,5 +1,8 @@
 require('@dotenvx/dotenvx').config();
+const PortalController = require('./controllers/PortalController');
 
 const database = require('./db/database');
 
-database('snapshot').select('*').then(console.log);
+const portalController = new PortalController(database);
+
+const portals = portalController.getAll().then((portals) => { console.log(portals) });

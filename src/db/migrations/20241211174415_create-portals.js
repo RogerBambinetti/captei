@@ -3,7 +3,7 @@
  * @returns { Promise<void> }
  */
 exports.up = async function (knex) {
-    knex.schema.createTable("portal", (table) => {
+    return knex.schema.createTable("portal", (table) => {
         table.increments("id").primary();
         table.string("name").notNullable();
         table.string("url").notNullable();
@@ -16,5 +16,5 @@ exports.up = async function (knex) {
  * @returns { Promise<void> }
  */
 exports.down = async function (knex) {
-    await knex.schema.dropTable("portal");
+    return knex.schema.dropTable("portal");
 };
