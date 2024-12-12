@@ -10,16 +10,12 @@ services:
       POSTGRES_PASSWORD: root
     ports:
       - "5432:5432"
-    volumes:
-      - ps_data:/var/lib/postgresql/data
 
   elasticsearch:
     image: docker.elastic.co/elasticsearch/elasticsearch:8.10.4
     container_name: elasticsearch_container
     restart: no
     environment:
-      discovery.type: single-node
-      bootstrap.memory_lock: "true"
       ES_JAVA_OPTS: "-Xms512m -Xmx512m"
     ports:
       - "9200:9200"
@@ -28,8 +24,4 @@ services:
         soft: -1
         hard: -1
     volumes:
-      - es_data:/usr/share/elasticsearch/data
-
-volumes:
-  ps_data:
-  es_data:
+      - ./elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml
