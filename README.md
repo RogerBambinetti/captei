@@ -1,9 +1,10 @@
-# Captei - Teste Prático Programador NodeJS + Elasticsearch + SQL
+# Captei Test - NodeJS + Elasticsearch + SQL
 
 ## Description
-A brief description of what this project does and who it's for.
+Test project for mid NodeJS developer at Captei.
 
-## Installation
+## Installation & Setup
+
 Instructions on how to install and set up the project.
 
 1. First, let's install the project dependencies with npm:
@@ -30,9 +31,3 @@ npx knex migrate:latest
 ```bash
 npm start
 ```
-
-## Contributing
-Guidelines for contributing to the project.
-
-## License
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
