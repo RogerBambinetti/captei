@@ -1,19 +1,32 @@
 const BaseCrawler = require('./BaseCrawler');
+const path = require('path');
 
 class DudaImoveisCrawler extends BaseCrawler {
     constructor(url, filters) {
+        super(url, filters);
+    }
 
-        const newUrl = new URL(url);
+    async handleFilter() {
 
-        console.log(newUrl.href)
+        console.log('Applyng filters...');
 
-        super(newUrl);
+        const filters = this.filters;
+        const path = [];
+
+        path.push(filters.businessType || 'aluguel');
+        path.push(filters.propertyType || 'apartamento');
+
+        const newUrl = new URL(path.join('/'), this.url);
+
+        this.navigateToPage(newUrl, toString());
     }
 
     async handleCrawling(page) {
+
+        console.log('Crawling...');
+
         const results = await page.$$('.imovel-box-single');
 
-        await page.screenshot({ path: 'dudaimoveis.png' });
         console.log(results)
     }
 }
