@@ -1,5 +1,4 @@
 const BaseCrawler = require('./BaseCrawler');
-const path = require('path');
 
 class DudaImoveisCrawler extends BaseCrawler {
     constructor(url, filters) {
@@ -27,7 +26,7 @@ class DudaImoveisCrawler extends BaseCrawler {
 
         const results = await page.$$('.imovel-box-single');
 
-        console.log(results)
+        console.log(results);
     }
 }
 
