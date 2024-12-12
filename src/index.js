@@ -26,11 +26,11 @@ async function init() {
 
             snapshotController.updateStatus(snapshot.id, 'rodando');
             const data = await crawler.getData();
+            snapshotController.updateStatus(snapshot.id, 'concluido');
         } catch (err) {
+            snapshotController.updateStatus(snapshot.id, 'erro');
             console.log(`Error while crawling ${portal.name}: ${err.message}`);
         }
-
-        snapshotController.updateStatus(snapshot.id, 'concluido');
     }
 }
 
