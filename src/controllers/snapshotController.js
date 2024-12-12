@@ -3,11 +3,11 @@ class SnapshotController {
         this.database = db;
     }
 
-    async getAll() {
+    async getByPortal(idPortal) {
         try {
-            const snapshots = await this.database('snapshot').select('*');
+            const snapshot = await this.database('snapshot').select('*').where('idPortal', idPortal);
 
-            return snapshots;
+            return snapshot;
         } catch (error) {
 
             throw error;

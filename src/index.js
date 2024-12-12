@@ -13,6 +13,9 @@ async function init() {
     const portals = await portalController.getAll();
 
     for (const portal of portals) {
+
+        const snapshot = await snapshotController.getByPortal(portal.id);
+
         try {
             console.log(`Starting crawler for ${portal.name}...`);
 

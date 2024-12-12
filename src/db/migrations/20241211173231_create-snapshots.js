@@ -6,10 +6,10 @@ exports.up = function (knex) {
     return knex.schema.createTable("snapshot", (table) => {
         table.increments("id").primary();
         table.string("idPortal").notNullable();
-        table.string("filters").notNullable();
-        table.string("status").notNullable();
-        table.dateTime("lastStarted").notNullable();
-        table.dateTime("lastTerminated").notNullable();
+        table.json("filters");
+        table.string("status");
+        table.dateTime("lastStarted");
+        table.dateTime("lastTerminated");
     });
 };
 

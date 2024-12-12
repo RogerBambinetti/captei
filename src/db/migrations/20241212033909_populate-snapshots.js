@@ -3,7 +3,7 @@
  * @returns { Promise<void> }
  */
 exports.up = async function (knex) {
-    return knex("portal").insert({ id: 1, name: 'Duda Imóveis', url: 'https://dudaimoveis.com.br', observations: 'Portal da imobiliária Duda Imóveis' });
+    return knex("snapshot").insert({ id: 1, name: 'Duda Imóveis', url: 'https://dudaimoveis.com.br', observations: 'Portal da imobiliária Duda Imóveis' });
 };
 
 /**
@@ -11,5 +11,5 @@ exports.up = async function (knex) {
  * @returns { Promise<void> }
  */
 exports.down = async function (knex) {
-    return knex("portal").delete()
+    return knex("snapshot").delete()
 };
