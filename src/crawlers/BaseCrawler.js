@@ -2,8 +2,9 @@ const puppeteer = require('puppeteer');
 
 class BaseCrawler {
 
-    constructor(url) {
+    constructor(url, filters) {
         this.baseUrl = url;
+        this.filters = filters;
     }
 
     async launchBrowser() {
@@ -28,27 +29,20 @@ class BaseCrawler {
         }
     }
 
-    async crawl() {
+    async getData() {
         const browser = await this.launchBrowser();
         const page = await browser.newPage();
 
         try {
             await this.navigateToPage(page, this.baseUrl);
+            const data = this.handleCrawling(page);
 
-            const songs = [];
-
-            return songs;
+            return data;
         } catch (e) {
             console.log('An error occurred during data retrieval:', e);
         } finally {
             await browser.close();
         }
-    }
-
-    async getData() {
-        const data = await this.crawl();
-
-        return data;
     }
 }
 

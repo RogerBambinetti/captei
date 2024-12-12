@@ -13,6 +13,23 @@ class SnapshotController {
             throw error;
         }
     }
+
+    async updateStatus(id, status) {
+        try {
+            await this.database('snapshot').where('id', id).update('status', status);
+
+            const currentDatetime = new Date().toISOString().replace('T', ' ').replace('Z', '');
+
+            if (['erro', 'concluido'].includes(status)) {
+                await this.database('snapshot').where('id', id).update('lastTerminated', currentDatetime);
+            } else {
+                await this.database('snapshot').where('id', id).update('lastStarted', currentDatetime);
+            }
+        } catch (error) {
+
+            throw error;
+        }
+    }
 }
 
 module.exports = SnapshotController;

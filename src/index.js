@@ -24,13 +24,15 @@ async function init() {
             const crawlerName = removeAccents(portal.name).replace(/[^A-Z0-9]/ig, "");
             const Crawler = require(`./crawlers/${crawlerName}Crawler`);
 
-            const crawler = new Crawler(portal.url);
+            const crawler = new Crawler(portal.url, snapshot.filters);
 
-            const data = await crawler.getData();
+            snapshotController.updateStatus(snapshot.id, 'rodando');
+            //const data = await crawler.getData();
         } catch (err) {
             console.log(`Error while crawling ${portal.name}: ${err.message}`);
         }
 
+        snapshotController.updateStatus(snapshot.id, 'concluido');
     }
 }
 
