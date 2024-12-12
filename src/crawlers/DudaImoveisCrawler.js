@@ -1,3 +1,4 @@
+const crypto = require('node:crypto');
 const BaseCrawler = require('./BaseCrawler');
 
 class DudaImoveisCrawler extends BaseCrawler {
@@ -43,17 +44,22 @@ class DudaImoveisCrawler extends BaseCrawler {
             const parkingSpots = await page.evaluate("document.querySelector('#amenity-vagas').querySelector('span').innerText");
             const privateArea = await page.evaluate("document.querySelector('#amenity-area-privativa').querySelector('span').innerText");
 
+            const currentDatetime = new Date().toISOString();
+
             const propertyData = {
+                id: crypto.randomUUID(),
+                titulo: title,
+                descricao: description,
                 url: resultLink,
-                title,
-                description,
-                address,
-                businessType,
-                price,
-                bedrooms,
-                bathrooms,
-                parkingSpots,
-                privateArea
+                tipoNegocio: businessType,
+                endereco: address,
+                preco: price,
+                quartos: bedrooms,
+                banheiros: bathrooms,
+                vagas_garagem: parkingSpots,
+                area_util: privateArea,
+                capturado_em: currentDatetime,
+                atualizado_em: currentDatetime
             };
 
             data.push(propertyData);
@@ -61,7 +67,7 @@ class DudaImoveisCrawler extends BaseCrawler {
             console.log(`Added data ${data.length} of ${resultLinks.length}`, propertyData);
         }
 
-        return data
+        return data;
     }
 }
 

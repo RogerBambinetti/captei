@@ -18,7 +18,7 @@ class SnapshotController {
         try {
             await this.database('snapshot').where('id', id).update('status', status);
 
-            const currentDatetime = new Date().toISOString().replace('T', ' ').replace('Z', '');
+            const currentDatetime = new Date().toISOString();
 
             if (['erro', 'concluido'].includes(status)) {
                 await this.database('snapshot').where('id', id).update('lastTerminated', currentDatetime);

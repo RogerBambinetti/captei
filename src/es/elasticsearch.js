@@ -1,7 +1,7 @@
 const elasticsearch = require('elasticsearch');
 
-esClient = elasticsearch.Client({
+client = elasticsearch.Client({
     host: process.env.ES_HOST,
 });
 
-module.exports = esClient;
+module.exports = client;
