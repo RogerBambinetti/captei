@@ -1,5 +1,8 @@
 # Captei Teste - NodeJS + Elasticsearch + SQL
 
+[![English](https://img.shields.io/badge/lang-english-blue.svg)](README.md)
+[![Português](https://img.shields.io/badge/lang-portuguese-green.svg)](README.pt-br.md)
+
 ## Descrição
 Projeto de teste para desenvolvedor NodeJS pleno na Captei.
 
