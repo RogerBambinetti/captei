@@ -16,6 +16,18 @@ class DudaImoveisCrawler extends BaseCrawler {
         path.push(filters.businessType || 'aluguel');
         path.push(filters.propertyType || 'apartamento');
 
+        if (filters.bedrooms) {
+            path.push(filters.bedrooms + '-dormitorios');
+        }
+
+        if (filters.bathrooms) {
+            path.push(filters.bedrooms + '-banheiros');
+        }
+
+        if (filters.parkingSpots) {
+            path.push(filters.parkingSpots + '-vagas');
+        }
+
         const newUrl = new URL(path.join('/'), this.baseUrl);
 
         await this.navigateToPage(page, newUrl.toString());
