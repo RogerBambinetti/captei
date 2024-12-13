@@ -9,6 +9,8 @@ class ESController {
             const body = dataArray.flatMap(doc => [{ index: { _index: index } }, doc]);
 
             await this.elasticsearch.bulk({ body });
+
+            console.log('Data indexed successfully at index:', index);
         } catch (error) {
             throw error;
         }
