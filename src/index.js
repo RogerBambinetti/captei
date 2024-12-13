@@ -32,9 +32,9 @@ async function init() {
             await snapshotController.updateStatus(snapshot.id, 'concluido');
 
             await esController.bulkIndexData('imoveis', data);
-        } catch (err) {
-            snapshotController.updateStatus(snapshot.id, 'erro');
-            console.log(`Error while crawling ${portal.name}: ${err}`);
+        } catch (error) {
+            await snapshotController.updateStatus(snapshot.id, 'erro');
+            console.log(`Error while crawling ${portal.name}: ${error}`);
         }
 
         console.log(`Crawler for ${portal.name} finished.`);

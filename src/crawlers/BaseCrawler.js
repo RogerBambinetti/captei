@@ -28,10 +28,8 @@ class BaseCrawler {
             const data = await this.handleCrawling(page);
 
             return data;
-        } catch (e) {
-            console.log('An error occurred during data retrieval:', e);
-        } finally {
-            await browser.close();
+        } catch (error) {
+            throw error;
         }
     }
 }
