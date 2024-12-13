@@ -40,8 +40,8 @@ Filters must be configured as `jsonb` on the `snapshot` table. The filters bello
 
 ```bash
 {
-    businessType: string, ("venda", "aluguel")
-    propertyType: string, ("casa", "apartamento")
+    businessType: string, \\ ("venda", "aluguel")
+    propertyType: string, \\ ("casa", "apartamento")
     bedrooms: integer,
     bathrooms: integer,
     parkingSpots: integer
