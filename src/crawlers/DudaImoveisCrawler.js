@@ -37,7 +37,29 @@ class DudaImoveisCrawler extends BaseCrawler {
 
         console.log('Crawling...');
 
-        const resultLinks = await page.evaluate("Array.from( document.querySelectorAll('.imovel-box-single a.swiper-wrapper'), a => a.getAttribute('href'))");
+        const resultLinks = [];
+
+        let currentPage = 1;
+        const currentPageSelector = `#page${currentPage}`;
+
+        const itemsPerPage = 12;
+
+        do {
+            await page.waitForSelector(currentPageSelector);
+            const pageLinks = await page.evaluate(`Array.from( document.querySelectorAll('${currentPageSelector} .imovel-box-single a.swiper-wrapper'), a => a.getAttribute('href'))`);
+
+            const scrollHeight = await page.evaluate("document.querySelector('.clb-search-result-property').scrollHeight");
+            await page.evaluate(`document.querySelector('.clb-search-result-property').scrollTo(0, window.scrollY + ${scrollHeight})`);
+
+            resultLinks.push(...pageLinks);
+
+            // Break if there are no more items to load
+            if (pageLinks.length < itemsPerPage) {
+                break;
+            }
+
+            currentPage++;
+        } while (resultLinks.length < process.env.CRAWLER_COUNT_LIMIT);
 
         const data = [];
 
