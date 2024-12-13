@@ -28,7 +28,7 @@ async function init() {
             const crawler = new Crawler(portal.url, snapshot.filters);
 
             await snapshotController.updateStatus(snapshot.id, 'rodando');
-            const data = [];
+            const data = await crawler.getData();
             await snapshotController.updateStatus(snapshot.id, 'concluido');
 
             await esController.bulkIndexData('imoveis', data);
