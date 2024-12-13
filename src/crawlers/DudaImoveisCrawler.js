@@ -40,11 +40,11 @@ class DudaImoveisCrawler extends BaseCrawler {
         const resultLinks = [];
 
         let currentPage = 1;
-        const currentPageSelector = `#page${currentPage}`;
-
         const itemsPerPage = 12;
 
         do {
+            const currentPageSelector = `#page${currentPage}`;
+
             await page.waitForSelector(currentPageSelector);
             const pageLinks = await page.evaluate(`Array.from( document.querySelectorAll('${currentPageSelector} .imovel-box-single a.swiper-wrapper'), a => a.getAttribute('href'))`);
 
