@@ -33,3 +33,17 @@ npx knex migrate:latest
 ```bash
 npm start
 ```
+
+## Filters
+
+Filters must be configured as `jsonb` on the `snapshot` table. The filters bellow are available:
+
+```bash
+{
+    businessType: string,
+    propertyType: string,
+    bedrooms: integer,
+    bathrooms: integer,
+    parkingSpots: integer
+}
+```

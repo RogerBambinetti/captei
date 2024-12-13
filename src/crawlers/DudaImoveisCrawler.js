@@ -21,7 +21,7 @@ class DudaImoveisCrawler extends BaseCrawler {
         }
 
         if (filters.bathrooms) {
-            path.push(filters.bedrooms + '-banheiros');
+            path.push(filters.bathrooms + '-banheiros');
         }
 
         if (filters.parkingSpots) {
