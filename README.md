@@ -59,3 +59,19 @@ Filters must be configured as `jsonb` on the `snapshot` table. The filters bello
     parkingSpots: integer
 }
 ```
+
+## License
+
+This project is intended for learning purposes only and is not licensed for commercial use.
+
+## Contributors
+
+<table align="center">
+  <tr>
+      <a href="https://github.com/RogerBambinetti">
+        <img src="https://avatars0.githubusercontent.com/u/50684839?s=460&v=4" width="100px" alt="Photo of Roger Bambinetti"/>
+        <br />
+        <sub><b>Roger Bambinetti</b></sub>
+      </a>
+  </tr>
+</table>
