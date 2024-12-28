@@ -4,7 +4,7 @@
 [![Português](https://img.shields.io/badge/lang-portuguese-green.svg)](README.pt-br.md)
 
 ## Description
-Test project for mid NodeJS developer at Captei.
+Test project for mid NodeJS developer position at Captei.
 
 ## Requirements
 
