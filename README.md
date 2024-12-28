@@ -14,7 +14,6 @@ Before you begin, ensure you have met the following requirements:
 - **NPM**: Usually installed with Node.js
 - **Docker**: v27.x
 - **Docker Compose**: v2.x
-- **Git**: Any version to clone the repository
 
 > ⚠️ **Note**: Using other versions may cause incompatibilities.
 
