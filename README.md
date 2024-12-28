@@ -10,10 +10,13 @@ Test project for mid NodeJS developer position at Captei.
 
 Before you begin, ensure you have met the following requirements:
 
-- Node.js (v16.x).
-- Npm (v8.x)
-- Docker (v27.x)
-- Docker Compose (v2.x)
+- **Node.js**: v12.x
+- **NPM**: Usually installed with Node.js
+- **Docker**: v27.x
+- **Docker Compose**: v2.x
+- **Git**: Any version to clone the repository
+
+> ⚠️ **Note**: Using other versions may cause incompatibilities.
 
 ## Installation & Setup
 
